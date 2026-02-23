@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=ecold58
+#SBATCH --job-name=ecold58d
 #SBATCH --output=%x.o
 #SBATCH --time=02:00:00
 #SBATCH --ntasks=16

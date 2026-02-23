@@ -170,7 +170,7 @@ void generate_ecmc_cb(const RunParamsECB& rp, bool existing) {
 
             if (topo.rank == 0) {
                 // Distance totale parcourue par l'ensemble des coeurs
-                double total_dist_all_ranks = rp.ecmc_params.param_theta_sample * topo.size;
+                double total_dist_all_ranks = rp.N_shift_plaquette *rp.ecmc_params.param_theta_sample * topo.size;
 
                 double avg_lambda =
                     total_dist_all_ranks / (double)global_lifts;
