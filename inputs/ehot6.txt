@@ -26,6 +26,6 @@ N_steps_gf = 10
 N_rk_steps = 40
 
 #Save params
-run_name = ehot6p
+run_name = ehot6
 run_dir = data
 save_each_shifts = 2000
