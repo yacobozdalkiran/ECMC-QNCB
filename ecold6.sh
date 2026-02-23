@@ -1,11 +1,11 @@
 #!/bin/bash
 
-#SBATCH --job-name=ecold616
+#SBATCH --job-name=ecold58
 #SBATCH --output=%x.o
 #SBATCH --time=02:00:00
-#SBATCH --ntasks=256
-#SBATCH --nodes=7
-#SBATCH --ntasks-per-node=37
+#SBATCH --ntasks=16
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=16
 #SBATCH --partition=cpu_med
 
 #Source necessary modules

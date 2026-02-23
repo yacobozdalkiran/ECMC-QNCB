@@ -1,18 +1,18 @@
 #Lattice params
 L_core=4
-n_core_dims=4
+n_core_dims=2
 cold_start=true
 
 #Run params
 seed=12345
-N_shift_therm = 0
-N_shift=2000
+N_shift_therm = 1000
+N_shift=10000
 
 #ECMC params
-beta=6.0
-param_theta_sample=1800
-param_theta_refresh_site=1500
-param_theta_refresh_R=150
+beta=5.8
+param_theta_sample=1000
+param_theta_refresh_site=200000
+param_theta_refresh_R=200000
 poisson=false
 epsilon_set=0.15
 
@@ -26,6 +26,6 @@ N_steps_gf = 10
 N_rk_steps = 40
 
 #Save params
-run_name = ecold616
+run_name = ecold58
 run_dir = data
 save_each_shifts = 2000
