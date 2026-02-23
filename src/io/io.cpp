@@ -46,7 +46,7 @@ void io::save_plaquette(const std::vector<double>& data, const std::string& file
     std::cout << "Plaquette written in " << filepath << "\n";
 }
 
-void io::save_event_nb(const std::vector<size_t>& event_nb, const std::string& filename,
+void io::save_event_nb(const std::vector<size_t>& event_nb, const std::vector<size_t>& lift_nb, const std::vector<double> lambda, const std::string& filename,
                         const std::string& dirpath) {
     // Create a data folder if doesn't exists
     fs::path base_dir(dirpath);
@@ -67,8 +67,8 @@ void io::save_event_nb(const std::vector<size_t>& event_nb, const std::string& f
         std::cout << "Could not open file " << filepath << "\n";
         return;
     }
-    for (const size_t& x : event_nb) {
-        file << x << "\n";
+    for (size_t i = 0; i<event_nb.size(); i++) {
+        file << event_nb[i] << " " << lift_nb[i] << " " << lambda[i] << "\n";
     }
     file.close();
     std::cout << "Number of events written in " << filepath << "\n";

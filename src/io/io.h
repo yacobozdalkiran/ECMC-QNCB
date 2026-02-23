@@ -16,7 +16,7 @@
 namespace io {
 // Output
 void save_plaquette(const std::vector<double>& data, const std::string& filename, const std::string& dirpath, int precision);
-void save_event_nb(const std::vector<size_t>& event_nb, const std::string& filename, const std::string& dirpath);
+void save_event_nb(const std::vector<size_t>& event_nb, const std::vector<size_t>& lift_nb, const std::vector<double> lambda, const std::string& filename, const std::string& dirpath);
 void save_topo(const std::vector<double>& tQE, const std::string& filename, const std::string& dirpath, int precision);
 void save_seed(std::mt19937_64& rng, const std::string& filename, const std::string& dirpath, mpi::MpiTopology& topo);
 void save_params(const RunParamsHbCB& rp, const std::string& filename, const std::string& dirpath);

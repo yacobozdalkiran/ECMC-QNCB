@@ -25,10 +25,12 @@ struct LocalChainState {
     // Budgets de Poisson persistants
     double theta_refresh_site = 0.0;
     double theta_refresh_R = 0.0;
+    double theta_sample = 0.0;
     // Compteur pour le set de matrices
     size_t set_counter;
     // Compteur de lifts
     size_t event_counter = 0;
+    size_t lift_counter = 0;
 };
 
 // Exp distributions if poisson
