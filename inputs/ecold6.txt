@@ -1,12 +1,12 @@
 #Lattice params
 L_core=4
-n_core_dims=2
+n_core_dims=4
 cold_start=true
 
 #Run params
 seed=12345
 N_shift_therm = 0
-N_shift=50000
+N_shift=2000
 
 #ECMC params
 beta=6.0
@@ -26,6 +26,6 @@ N_steps_gf = 10
 N_rk_steps = 40
 
 #Save params
-run_name = ecold62
+run_name = ecold616
 run_dir = data
 save_each_shifts = 2000
