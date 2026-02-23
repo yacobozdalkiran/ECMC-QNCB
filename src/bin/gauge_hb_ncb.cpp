@@ -77,7 +77,7 @@ void generate_hb_cb(const RunParamsHbCB& rp, bool existing) {
     // Print params
     print_parameters(rp, topo);
 
-    //==============================Heatbath Checkboard===========================
+    //==============================Heatbath (NO Checkboard)===========================
 
     // Thermalisation
 

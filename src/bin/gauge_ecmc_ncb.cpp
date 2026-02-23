@@ -91,7 +91,7 @@ void generate_ecmc_cb(const RunParamsECB& rp, bool existing) {
     // Print params
     print_parameters(rp, topo);
 
-    //==============================ECMC Checkboard===========================
+    //==============================ECMC (NO Checkboard)===========================
     // Thermalisation
 
     if (topo.rank == 0) {
