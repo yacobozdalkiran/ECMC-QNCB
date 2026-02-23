@@ -110,8 +110,7 @@ size_t random_site(const GeometryCB& geo, std::mt19937_64& rng);
 void sample(GaugeField& field, const GeometryCB& geo, const ECMCParams& params,
             std::mt19937_64& rng, mpi::MpiTopology& topo, parity active_parity);
 void sample_persistant(LocalChainState& state, Distributions& d, GaugeField& field,
-                       const GeometryCB& geo, const ECMCParams& params, std::mt19937_64& rng,
-                       mpi::MpiTopology& topo);
+                       const GeometryCB& geo, const ECMCParams& params, std::mt19937_64& rng);
 }  // namespace mpi::ecmccb
 
 #endif  // INC_4D_MPI_ECMC_MPI_H

@@ -60,7 +60,6 @@ void generate_ecmc_cb(const RunParamsECB& rp, bool existing) {
     HalosShift halo_shift(geo);
 
     int N_shift = rp.N_shift;
-    int N_switch_eo = rp.N_switch_eo;
 
     // Topo
     double eps = 0.02;
@@ -104,7 +103,7 @@ void generate_ecmc_cb(const RunParamsECB& rp, bool existing) {
         // Random shift
         mpi::shift::random_shift(field, geo, halo_shift, topo, rng);
         //ECMC
-        mpi::ecmccb::sample_persistant(state, d, field, geo, ep, rng, topo);
+        mpi::ecmccb::sample_persistant(state, d, field, geo, ep, rng);
         //Halos update
         mpi::exchange::exchange_halos_cascade(field, geo, topo);
 
@@ -138,7 +137,7 @@ void generate_ecmc_cb(const RunParamsECB& rp, bool existing) {
         // Random shift
         mpi::shift::random_shift(field, geo, halo_shift, topo, rng);
         //ECMC
-        mpi::ecmccb::sample_persistant(state, d, field, geo, ep, rng, topo);
+        mpi::ecmccb::sample_persistant(state, d, field, geo, ep, rng);
         //Halos update
         mpi::exchange::exchange_halos_cascade(field, geo, topo);
 

@@ -52,7 +52,6 @@ void generate_hb_cb(const RunParamsHbCB& rp, bool existing) {
     HalosShift halo_shift(geo);
 
     int N_shift = rp.N_shift;
-    int N_switch_eo = rp.N_switch_eo;
 
     // Topo
     double eps = 0.02;
