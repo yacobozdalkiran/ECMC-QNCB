@@ -6,7 +6,7 @@ cold_start=false
 #Run params
 seed=12345
 N_shift_therm = 0
-N_shift=5000
+N_shift=50000
 
 #Heatbath params
 beta = 6.0
