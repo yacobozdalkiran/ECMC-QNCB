@@ -10,10 +10,10 @@ N_shift=50000
 
 #ECMC params
 beta=6.0
-param_theta_sample=900
+param_theta_sample=1800
 param_theta_refresh_site=1500
 param_theta_refresh_R=150
-poisson=true
+poisson=false
 epsilon_set=0.15
 
 #Plaquette params
@@ -26,6 +26,6 @@ N_steps_gf = 10
 N_rk_steps = 40
 
 #Save params
-run_name = ecold6p
+run_name = ecold62
 run_dir = data
 save_each_shifts = 2000

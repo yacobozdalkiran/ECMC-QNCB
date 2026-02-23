@@ -10,7 +10,7 @@ N_shift=50000
 
 #Heatbath params
 beta = 6.0
-N_sweeps = 1
+N_sweeps = 2
 N_hits = 1
 
 #Plaquette params
@@ -23,6 +23,6 @@ N_steps_gf = 10
 N_rk_steps = 40
 
 #Save params
-run_name = hhot6
+run_name = hhot62
 run_dir = data
 save_each_shifts = 2000
