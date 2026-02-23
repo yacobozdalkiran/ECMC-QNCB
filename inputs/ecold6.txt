@@ -1,0 +1,31 @@
+#Lattice params
+L_core=4
+n_core_dims=2
+cold_start=true
+
+#Run params
+seed=12345
+N_shift_therm = 0
+N_shift=50000
+
+#ECMC params
+beta=6.0
+param_theta_sample=900
+param_theta_refresh_site=1500
+param_theta_refresh_R=150
+poisson=true
+epsilon_set=0.15
+
+#Plaquette params
+N_shift_plaquette = 1
+
+#Topo params
+topo = false
+N_shift_topo = 25
+N_steps_gf = 10
+N_rk_steps = 40
+
+#Save params
+run_name = ecold6p
+run_dir = data
+save_each_shifts = 2000
