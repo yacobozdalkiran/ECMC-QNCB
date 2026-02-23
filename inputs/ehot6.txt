@@ -13,7 +13,7 @@ beta=6.0
 param_theta_sample=900
 param_theta_refresh_site=1500
 param_theta_refresh_R=150
-poisson=true
+poisson=false
 epsilon_set=0.15
 
 #Plaquette params
