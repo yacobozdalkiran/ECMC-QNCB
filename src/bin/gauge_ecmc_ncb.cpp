@@ -158,9 +158,32 @@ void generate_ecmc_cb(const RunParamsECB& rp, bool existing) {
             }
             plaquette.emplace_back(p);
             // Event counting
-            event_nb.emplace_back(state.event_counter);
-            lift_nb.emplace_back(state.lift_counter);
-            lambda.emplace_back(rp.ecmc_params.param_theta_sample/static_cast<double>(state.lift_counter));
+            // 2. Réduction des compteurs de lifts pour lambda
+            unsigned long local_lifts = state.lift_counter;
+            unsigned long local_events = state.event_counter;
+            unsigned long global_lifts = 0;
+            unsigned long global_events = 0;
+            MPI_Reduce(&local_lifts, &global_lifts, 1, MPI_UNSIGNED_LONG, MPI_SUM, 0,
+                       MPI_COMM_WORLD);
+            MPI_Reduce(&local_events, &global_events, 1, MPI_UNSIGNED_LONG, MPI_SUM, 0,
+                       MPI_COMM_WORLD);
+
+            if (topo.rank == 0) {
+                // Distance totale parcourue par l'ensemble des coeurs
+                double total_dist_all_ranks = rp.ecmc_params.param_theta_sample * topo.size;
+
+                double avg_lambda =
+                    total_dist_all_ranks / (double)global_lifts;
+                size_t avg_lift_nb = global_lifts/topo.size;
+                size_t avg_event_nb =global_events/topo.size;
+
+                lambda.emplace_back(avg_lambda);
+                lift_nb.emplace_back(avg_lift_nb);
+                event_nb.emplace_back(avg_event_nb);
+
+                std::cout << ">>> Avg Lambda: " << avg_lambda
+                          << " (Avg Lifts: " << avg_lift_nb << ")\n";
+            }
             // Event counter reinitialized
             state.event_counter = 0;
             state.lift_counter = 0;
