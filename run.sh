@@ -12,4 +12,4 @@
 source modules_load.sh
 
 # Run MPI script
-srun build/gauge_hb_cb inputs/hb_cb.txt
+srun build/gauge_hb_cb inputs/hb_ncb.txt

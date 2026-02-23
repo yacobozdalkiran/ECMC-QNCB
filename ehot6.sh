@@ -12,4 +12,4 @@
 source modules_load.sh
 
 # Run MPI script
-srun build/gauge_ecmc_cb inputs/ehot6.txt
+srun build/gauge_ecmc_ncb inputs/ehot6.txt
