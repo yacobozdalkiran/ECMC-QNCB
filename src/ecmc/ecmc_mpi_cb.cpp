@@ -525,6 +525,7 @@ void mpi::ecmccb::sample_persistant(LocalChainState& state, Distributions& d, Ga
     size_t set_counter = state.set_counter;
     size_t event_counter = state.event_counter;
     size_t lift_counter = state.lift_counter;
+    size_t rev_counter = state.rev_counter;
 
     // Budget d'angle
     double theta_sample = poisson ? d.dist_sample(rng) : params.param_theta_sample;
@@ -535,7 +536,7 @@ void mpi::ecmccb::sample_persistant(LocalChainState& state, Distributions& d, Ga
     double theta_parcouru_refresh_R = state.theta_parcouru_refresh_R;
 
     // Buffer de matrices (Optimisation : Statique pour éviter l'allocation)
-    static std::vector<SU3> set_matrices(101);
+    static std::vector<SU3> set_matrices(10001);
     ecmc_set(params.epsilon_set, set_matrices, rng);
 
     // Buffers de travail
@@ -544,7 +545,7 @@ void mpi::ecmccb::sample_persistant(LocalChainState& state, Distributions& d, Ga
 
     while (true) {
         // Actualisation set update R
-        if (set_counter % 100 == 0) {
+        if (set_counter % 10000 == 0) {
             ecmc_set(params.epsilon_set, set_matrices, rng);
             set_counter = 0;
         }
@@ -588,6 +589,7 @@ void mpi::ecmccb::sample_persistant(LocalChainState& state, Distributions& d, Ga
             state.set_counter = set_counter;
             state.event_counter = event_counter;
             state.lift_counter = lift_counter;
+            state.rev_counter = rev_counter;
             return;
         } else if (theta_step == dist_to_refresh_site) {
             // --- EVENT: REFRESH SITE ---
@@ -624,6 +626,7 @@ void mpi::ecmccb::sample_persistant(LocalChainState& state, Distributions& d, Ga
 
             auto l =
                 lift_improved_fast(field, geo, site_current, mu_current, j, R, set_matrices, rng);
+            rev_counter += (l.first.first == site_current) ? 1 : 0;
             set_counter++;
             lift_counter++;
             site_current = l.first.first;

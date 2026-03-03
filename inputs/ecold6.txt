@@ -5,11 +5,11 @@ cold_start=true
 
 #Run params
 seed=12345
-N_shift_therm = 10000
-N_shift=200000
+N_shift_therm = 10
+N_shift=20
 
 #ECMC params
-beta=5.8
+beta=6.0
 param_theta_sample=1000
 param_theta_refresh_site=500
 param_theta_refresh_R=3.3

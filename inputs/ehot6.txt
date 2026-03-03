@@ -9,7 +9,7 @@ N_shift_therm = 0
 N_shift=50000
 
 #ECMC params
-beta=6.0
+beta=5
 param_theta_sample=1800
 param_theta_refresh_site=1500
 param_theta_refresh_R=150

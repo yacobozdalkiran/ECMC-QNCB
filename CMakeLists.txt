@@ -8,6 +8,7 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release CACHE STRING "Choose the type of build." FORCE)
 endif()
 
+find_package(OpenMP REQUIRED)
 find_package(MPI REQUIRED)
 find_package(Eigen3 REQUIRED) # Décommente si besoin
 include(FetchContent)
@@ -48,7 +49,7 @@ add_executable(gauge_ecmc_ncb src/bin/gauge_ecmc_ncb.cpp
         src/flow/gradient_flow.cpp
         src/io/ildg.cpp
 )
-target_link_libraries(gauge_ecmc_ncb PRIVATE MPI::MPI_CXX Eigen3::Eigen lime)
+target_link_libraries(gauge_ecmc_ncb PRIVATE OpenMP::OpenMP_CXX MPI::MPI_CXX Eigen3::Eigen lime)
 if(CMAKE_CXX_COMPILER_ID STREQUAL "IntelLLVM")
     target_compile_options(gauge_ecmc_ncb PRIVATE
             -O3
@@ -83,7 +84,7 @@ add_executable(gauge_hb_ncb src/bin/gauge_hb_ncb.cpp
         src/flow/gradient_flow.cpp
         src/io/ildg.cpp
 )
-target_link_libraries(gauge_hb_ncb PRIVATE MPI::MPI_CXX Eigen3::Eigen lime)
+target_link_libraries(gauge_hb_ncb PRIVATE OpenMP::OpenMP_CXX MPI::MPI_CXX Eigen3::Eigen lime)
 if(CMAKE_CXX_COMPILER_ID STREQUAL "IntelLLVM")
     target_compile_options(gauge_hb_ncb PRIVATE
             -O3
